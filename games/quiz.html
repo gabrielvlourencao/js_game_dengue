@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo 2 - Quiz</title>
+    <link rel="stylesheet" href="../style.css">
+    <script defer src="../script.js"></script>
+    <script defer src="quiz.js"></script>
+
+    <style>
+        /* Container de cada questão */
+        #quiz>div {
+            margin-bottom: 25px;
+            /* espaçamento entre perguntas */
+        }
+
+        /* Botões das opções */
+        #quiz button {
+            display: block;
+            /* cada botão em linha separada */
+            width: 100%;
+            /* opcional: ocupa toda largura do container */
+            max-width: 300px;
+            /* limite de largura */
+            margin: 10px auto;
+            /* centraliza e dá espaçamento vertical */
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            transition: background 0.3s;
+        }
+
+        #quiz button:hover {
+            background-color: #45a049;
+        }
+
+        #quiz button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Quiz da Prevenção 💧</h2>
+        <div id="quiz"></div>
+        <p id="quizScore">Pontuação: 0</p>
+    </div>
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <p id="finalMessage"></p>
+            <button onclick="goToNextGame('exterminate.html')">Próximo Jogo</button>
+        </div>
+    </div>
+</body>
+
+</html>

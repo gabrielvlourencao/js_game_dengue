@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo 1 - Focos do Mosquito</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .grid img {
+      width: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 3px solid transparent;
+    }
+
+    .grid img:hover {
+      border-color: #3e54b5;
+      transition: 0.4s;
+    }
+
+    .grid img.success {
+      border-color: #28a745;
+    }
+
+    .grid img.error {
+      border-color: #d50909;
+    }
+  </style>
+
+  <script defer src="../script.js"></script>
+  <script defer src="choose.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Selecione os focos do mosquito 🦟</h2>
+    <div class="grid" id="itemsGrid"></div>
+    <p id="score">Pontuação: 0</p>
+  </div>
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <p id="finalMessage"></p>
+      <button onclick="goToNextGame('quiz.html')">Próximo Jogo</button>
+    </div>
+  </div>
+</body>
+
+</html>
