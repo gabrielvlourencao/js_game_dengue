@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo 2 - Quiz</title>
+    <title>Etapa 2 - Quiz</title>
     <link rel="stylesheet" href="../style.css">
     <script defer src="../script.js"></script>
     <script defer src="quiz.js"></script>
@@ -19,37 +19,54 @@
         /* Botões das opções */
         #quiz button {
             display: block;
-            /* cada botão em linha separada */
             width: 100%;
-            /* opcional: ocupa toda largura do container */
-            max-width: 300px;
-            /* limite de largura */
-            margin: 10px auto;
-            /* centraliza e dá espaçamento vertical */
-            padding: 10px 15px;
+            max-width: 400px;
+            margin: 12px auto;
+            padding: 14px 20px;
             font-size: 16px;
-            border-radius: 8px;
+            font-weight: 600;
+            border-radius: 10px;
             cursor: pointer;
-            background-color: #4caf50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
         }
 
-        #quiz button:hover {
-            background-color: #45a049;
+        #quiz button:hover:not(:disabled) {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(102, 126, 234, 0.4);
         }
 
         #quiz button:disabled {
-            background-color: #ccc;
+            background: #ccc;
             cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        #quiz > div {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        #quiz > div p {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h2>Quiz da Prevenção 💧</h2>
+        <h2>🧠 Etapa 2: Quiz sobre Chikungunya</h2>
+        <p class="instruction">Responda todas as perguntas sobre prevenção e sintomas da Chikungunya</p>
         <div id="quiz"></div>
         <p id="quizScore">Pontuação: 0</p>
     </div>

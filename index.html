@@ -3,24 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dengue Game</title>
+  <title>Chikungunya Game 🦟</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
 <body>
   <div class="container">
-    <h1>Jogo da Dengue 🦟</h1>
-    <div class="alert">
-      <p>Este jogo tem 3 etapas:</p>
-      <ul>
-        <li><b>Jogo 1</b>: Identifique focos do mosquito (30 pts)</li>
-        <li><b>Jogo 2</b>: Quiz sobre prevenção (30 pts)</li>
-        <li><b>Jogo 3</b>: Mate os mosquitos com veneno (40 pts)</li>
-      </ul>
-      <p>Total possível: 100 pontos</p>
+    <div class="game-header">
+      <h1>🦟 Chikungunya Game</h1>
+      <p class="subtitle">Combata o mosquito e previna a doença!</p>
     </div>
-    <input type="text" id="playerName" placeholder="Digite seu nome">
-    <button onclick="startGame()">Começar</button>
+    
+    <div class="alert">
+      <h3>📋 Regras do Jogo</h3>
+      <p>Complete as 3 etapas e alcance a maior pontuação possível:</p>
+      <ul>
+        <li><b>🎯 Etapa 1</b>: Identifique focos do mosquito (30 pts)</li>
+        <li><b>🧠 Etapa 2</b>: Quiz sobre prevenção (30 pts)</li>
+        <li><b>💨 Etapa 3</b>: Elimine os mosquitos (40 pts)</li>
+      </ul>
+      <p class="total-points">🏆 Total possível: <strong>100 pontos</strong></p>
+    </div>
+
+    <div class="input-section">
+      <input type="text" id="playerName" placeholder="Digite seu nome" maxlength="20">
+      <button class="btn-primary" onclick="startGame()">▶️ Começar Jogo</button>
+    </div>
+
+    <div class="ranking-section">
+      <h3>🏆 Ranking</h3>
+      <button class="btn-secondary" onclick="showRanking()">Ver Ranking Completo</button>
+      <div id="topRanking"></div>
+    </div>
   </div>
 </body>
 </html>

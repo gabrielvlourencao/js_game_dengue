@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jogo 1 - Focos do Mosquito</title>
+  <title>Etapa 1 - Focos do Mosquito</title>
   <link rel="stylesheet" href="../style.css">
   <style>
     .grid {
@@ -22,16 +22,19 @@
     }
 
     .grid img:hover {
-      border-color: #3e54b5;
-      transition: 0.4s;
+      border-color: #667eea;
+      transform: scale(1.02);
+      transition: 0.3s;
     }
 
     .grid img.success {
       border-color: #28a745;
+      box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
     }
 
     .grid img.error {
-      border-color: #d50909;
+      border-color: #dc3545;
+      box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
     }
   </style>
 
@@ -41,7 +44,8 @@
 
 <body>
   <div class="container">
-    <h2>Selecione os focos do mosquito 🦟</h2>
+    <h2>🎯 Etapa 1: Identifique os Focos 🦟</h2>
+    <p class="instruction">Clique nos itens que podem acumular água e se tornar focos do mosquito transmissor da Chikungunya</p>
     <div class="grid" id="itemsGrid"></div>
     <p id="score">Pontuação: 0</p>
   </div>

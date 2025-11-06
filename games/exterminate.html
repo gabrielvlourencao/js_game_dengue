@@ -4,12 +4,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo 3 - Mate os mosquitos</title>
+    <title>Etapa 3 - Elimine os Mosquitos da Chikungunya</title>
     <link rel="stylesheet" href="../style.css">
 
     <style>
         body {
-            cursor: url('../assets/icon/spray.png'), auto;
+            cursor: url('../assets/icon/spray.png'), pointer !important;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        * {
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+        }
+        
+        #gameArea, #gameArea * {
+            cursor: url('../assets/icon/spray.png'), pointer !important;
+        }
+        
+        input, textarea {
+            -webkit-user-select: text !important;
+            -moz-user-select: text !important;
+            -ms-user-select: text !important;
+            user-select: text !important;
+        }
+        
+        .game-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            text-align: center;
+            cursor: default !important;
+        }
+        
+        .game-header * {
+            cursor: default !important;
+        }
+        
+        .game-header h2 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #667eea;
+        }
+        
+        .game-header p {
+            margin: 5px 0 0 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        #mosquitoScore {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #667eea;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: default !important;
+            pointer-events: none;
+        }
+        
+        #gameArea {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+        }
+        
+        .container {
+            display: none;
+        }
+        
+        .mosquito {
+            animation: fly 0.3s ease-in-out infinite alternate;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+            cursor: url('../assets/icon/spray.png'), pointer !important;
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+        }
+        
+        .mosquito * {
+            cursor: url('../assets/icon/spray.png'), pointer !important;
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+        }
+        
+        img.mosquito {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+        }
+        
+        @keyframes fly {
+            0% {
+                transform: translate(0, 0) rotate(-5deg);
+            }
+            100% {
+                transform: translate(10px, -10px) rotate(5deg);
+            }
+        }
+        
+        .mosquito-hit {
+            animation: hit 0.3s ease-out forwards;
+        }
+        
+        @keyframes hit {
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2) rotate(180deg);
+                opacity: 0;
+            }
         }
     </style>
 
@@ -18,11 +155,19 @@
 </head>
 
 <body>
-    <div class="container">
-        <h2>Mate os mosquitos! 🦟</h2>
-        <p>Clique nos mosquitos antes que sumam.</p>
-        <div id="gameArea"></div>
-        <p id="mosquitoScore">Pontuação: 0</p>
+    <div class="game-header">
+        <h2>💨 Etapa 3: Elimine os Mosquitos da Chikungunya!</h2>
+        <p>Use o spray (clique e arraste) ou clique diretamente nos mosquitos</p>
+    </div>
+    <p id="mosquitoScore">Pontuação: 0</p>
+    <div id="gameArea"></div>
+    
+    <div class="container" style="display: none;">
+        <div id="modal" class="modal hidden">
+            <div class="modal-content">
+                <p id="finalMessage"></p>
+            </div>
+        </div>
     </div>
     <div id="modal" class="modal hidden">
         <div class="modal-content">
